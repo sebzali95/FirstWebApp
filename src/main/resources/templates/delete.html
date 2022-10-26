@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Student</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/student/delete}" th:object="${student}" method="post">
+
+    Student ID:<input type="text" th:field="*{id}"/><br>
+    Student Name:<input type="text" th:field="*{name}"/><br>
+    Student Surname:<input type="text" th:field="*{surname}"/><br>
+
+    <ul>
+
+        <li th:each="course : ${allCourses}">
+            <input type="checkbox" name="courses" th:checked="${student.courses.contains(course)}" th:value="${course.id}">
+            <label th:text="${course.name}"></label>
+
+
+        </li>
+    </ul>
+
+    <input type="submit" value="Delete a Submit">
+
+</form>
+
+<a href="/student/">Go to Index Page</a>
+
+</body>
+</html>

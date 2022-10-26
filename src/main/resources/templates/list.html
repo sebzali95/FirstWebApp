@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="i : ${students}">
+        <td th:text="${i.id}">0</td>
+        "
+        <td th:text="${i.name}">0</td>
+        "
+        <td th:text="${i.surname}">0</td>
+        "
+
+        <td>
+            <select>
+                <option th:each="course : ${i.courses}"
+                        th:text="${course.name}"
+                        th:value="${course.id}">
+                </option>
+            </select>
+        </td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<a href="/student/">Go to Index Page</a>
+
+</body>
+</html>

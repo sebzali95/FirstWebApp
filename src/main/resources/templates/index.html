@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+
+<h2>Student Portal</h2>
+<a href="/student/new">Add a student</a>
+<br>
+<a href="/student/list"> Student list</a>
+<br>
+<form action="/student/update"method="GET">
+    Update Student with ID <input type="text" name="id"/>
+    <input type="submit"value="Search">
+</form>
+<br>
+<form action="/student/delete"method="GET">
+    Delete Student with ID <input type="text" name="id"/>
+    <input type="submit"value="Search">
+</form>
+
+<br>
+<form action="/student/name"method="GET">
+    Enter Your Name Name: <input type="text" name="name"/>
+    <input type="submit"value="Find By Name">
+</form>
+
+</form>
+</body>
+</html>

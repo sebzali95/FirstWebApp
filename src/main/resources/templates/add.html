@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Student</title>
+</head>
+
+<style>
+
+    .error {
+        color: red;
+    }
+</style>
+
+
+<body>
+
+<form action="#" th:action="@{/student/save}" th:object="${student}" method="post">
+    <div th:if="${#fields.hasErrors('*')}">
+        <p class="error">Plase Correct Errors Below</p>
+    </div>
+
+    Student ID:<input type="text" th:field="*{id}"/><br>
+    <span class="error" th:if="${#fields.hasErrors('id')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('id')}" th:text="${err}"/>
+        </ul>
+    </span>
+
+    Student Name:<input type="text" th:field="*{name}"/><br>
+    <span class="error" th:if="${#fields.hasErrors('name')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('name')}" th:text="${err}"/>
+        </ul>
+    </span>
+
+    Student Surname:<input type="text" th:field="*{surname}"/><br>
+    <span class="error" th:if="${#fields.hasErrors('surname')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('surname')}" th:text="${err}"/>
+        </ul>
+    </span>
+
+    <p th:each="course : ${allCourses}">
+        <input name="courses" th:value="${course.id}" type="checkbox">
+        <label th:text="${course.name}"></label>
+
+    </p>
+
+    <input type="submit" value="Add a Submit">
+
+</form>
+
+<a href="/student/">Go to Index Page</a>
+
+
+</body>
+</html>
